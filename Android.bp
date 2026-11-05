@@ -1,0 +1,37 @@
+// AOSP Vehicle Climate Application Build File (Soong / Android.bp)
+
+android_app {
+    name: "ClimateApplication",
+    srcs: [
+        "app/src/main/java/**/*.kt",
+    ],
+    aidl: {
+        srcs: [
+            "app/src/main/aidl/**/*.aidl",
+        ],
+    },
+    resource_dirs: [
+        "app/src/main/res",
+    ],
+    manifest: "app/src/main/AndroidManifest.xml",
+    sdk_version: "system_current",
+    certificate: "platform",
+    privileged: true,
+    optimize: {
+        enabled: true,
+    },
+    static_libs: [
+
+        "androidx.core_core-ktx",
+        "androidx.lifecycle.lifecycle-runtime-ktx",
+        "androidx.activity.activity-compose",
+        "androidx.compose.material3_material3",
+        "androidx.compose.ui_ui",
+        "androidx.compose.ui_ui-graphics",
+        "androidx.compose.ui_ui-tooling-preview",
+        "kotlinx-coroutines-android",
+    ],
+    kotlincflags: [
+        "-Werror",
+    ],
+}
